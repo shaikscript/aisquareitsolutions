@@ -528,13 +528,13 @@
 }
 
 .domain__icon {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   display: grid;
   place-items: center;
-  border-radius: 13px;
-  border: 1px solid var(--line-strong);
-  background: rgba(255, 255, 255, 0.045);
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--panel-2);
   color: var(--text);
 }
 
