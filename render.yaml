@@ -1,0 +1,24 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+#
+# Create it with: Render Dashboard → New → Blueprint → pick this repo.
+# Or skip the blueprint entirely and make a normal Web Service with the same
+# build/start commands (see RENDER-STEPS.md).
+services:
+  - type: web
+    name: aisquare-platform
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      # node:sqlite (used for the demo database) is stable from Node 24
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
+      # seeds the demo accounts on an empty database
+      - key: SEED_DEMO
+        value: "true"
