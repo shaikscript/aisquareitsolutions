@@ -1,18 +1,13 @@
 # Deploying the Node app on Render
 
-Two things caused the failure you saw:
+What caused the failure:
 
-1. **The service was created as a Docker service.** Render looked for a
-   `Dockerfile` in the repo root, found none, and stopped with
-   `failed to read dockerfile: open Dockerfile: no such file or directory`.
-   A `Dockerfile` now exists, so that route works too.
-2. **Render deployed `main`, which does not contain the app.** At the moment
-   `main` only holds the uploaded PHP files (`index.php`, `api/`, `app.html`).
-   The Node platform (Express + React + SQLite) lives on the branch
-   `arena/a9f774e3-aisquareitsolutions` — pull request #1. So even with a
-   Dockerfile, deploying `main` builds the wrong tree.
+**The service was created as a Docker service.** Render looked for a
+`Dockerfile` in the repo root, found none, and stopped with
+`failed to read dockerfile: open Dockerfile: no such file or directory`.
 
-Pick **one** of the three routes below. Route A is the simplest.
+`main` now contains the whole Node platform plus a `Dockerfile`, so every route
+below works from `main`. Pick **one** — Route A is the simplest.
 
 ---
 
@@ -20,8 +15,7 @@ Pick **one** of the three routes below. Route A is the simplest.
 
 1. Open <https://dashboard.render.com> → **New +** → **Web Service**.
 2. Connect the repository `shaikscript/aisquareitsolutions`.
-3. **Branch:** `arena/a9f774e3-aisquareitsolutions`
-   (after PR #1 is merged into `main`, you can use `main` instead).
+3. **Branch:** `main`.
 4. **Language / Runtime:** `Node`.
 5. **Root Directory:** leave empty.
 6. **Build Command:**
@@ -64,7 +58,7 @@ dependencies only, on the port Render provides.
 ## Route C — Blueprint (one click, uses `render.yaml`)
 
 1. <https://dashboard.render.com> → **New +** → **Blueprint**.
-2. Pick the repository and the branch `arena/a9f774e3-aisquareitsolutions`.
+2. Pick the repository and the branch `main`.
 3. Render reads `render.yaml` and shows one free web service — click **Apply**.
 
 The blueprint already sets the build/start commands, health check and the three
@@ -111,7 +105,7 @@ sign-in silently fails over plain `http://`.
 | `failed to read dockerfile: open Dockerfile` | Docker runtime chosen, no Dockerfile at the repo root | Use Route A, or Route B now that `Dockerfile` is committed |
 | Build succeeds but `No production bundle found.` | Build command skipped `npm run build` | Use `npm ci --include=dev && npm run build` |
 | `Cannot find module 'node:sqlite'` | Node older than 22.13 | Set `NODE_VERSION` = `24` (or `22` at 22.13+), redeploy |
-| `npm ci` fails: lock file out of sync | `package-lock.json` missing or stale | It is committed — make sure the branch you selected includes it |
+| `npm ci` fails: lock file out of sync | `package-lock.json` missing or stale | It is committed on `main` — make sure you selected that branch |
 | Build installs nothing / vite not found | npm skipped dev dependencies | Keep `--include=dev` in the build command |
 | Sign-in appears to do nothing | Page opened over `http://` | Use the `https://…onrender.com` URL |
 | First page load very slow | Free instance was asleep | Wait for the cold start, or upgrade the plan |
