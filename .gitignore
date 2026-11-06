@@ -7,8 +7,9 @@ storage/
 .DS_Store
 *.log
 
-# PHP deploy artefacts
-deploy/
+# PHP deploy artefacts (the ready-to-upload ZIP is tracked on purpose)
+deploy/*
+!deploy/aisquare-infinityfree.zip
 php/api/config.php
 php/app.html
 php/brand/
