@@ -75,10 +75,10 @@ export default function Scene3D({ className = '', variant = 'hero', intensity = 
     const group = new THREE.Group();
     scene.add(group);
 
-    const violet = parseColor('#a58bff');
-    const lavender = parseColor('#e0d4ff');
-    const mint = parseColor('#7ef0c5');
-    const warm = parseColor('#ffcb8a');
+    const brass = parseColor('#c9973f');
+    const bone = parseColor('#f2e2bd');
+    const sage = parseColor('#9fbfa9');
+    const warm = parseColor('#f0b862');
 
     /* ── particle lattice ── */
     const count = isMobile ? 3600 : 9200;
@@ -103,9 +103,9 @@ export default function Scene3D({ className = '', variant = 'hero', intensity = 
 
       const t = Math.min(1, Math.max(0, (y + 2.4) / 4.6));
       const color = new THREE.Color();
-      if (t < 0.42) color.copy(violet).lerp(lavender, t / 0.42);
-      else if (t < 0.78) color.copy(lavender).lerp(mint, (t - 0.42) / 0.36);
-      else color.copy(mint).lerp(warm, (t - 0.78) / 0.22);
+      if (t < 0.42) color.copy(brass).lerp(bone, t / 0.42);
+      else if (t < 0.78) color.copy(bone).lerp(sage, (t - 0.42) / 0.36);
+      else color.copy(sage).lerp(warm, (t - 0.78) / 0.22);
       colors[i * 3] = color.r;
       colors[i * 3 + 1] = color.g;
       colors[i * 3 + 2] = color.b;
@@ -140,13 +140,13 @@ export default function Scene3D({ className = '', variant = 'hero', intensity = 
     const coreEdges = new THREE.EdgesGeometry(coreGeometry);
     const core = new THREE.LineSegments(
       coreEdges,
-      new THREE.LineBasicMaterial({ color: 0xc7b4ff, transparent: true, opacity: 0.32 })
+      new THREE.LineBasicMaterial({ color: 0xe4c383, transparent: true, opacity: 0.28 })
     );
     group.add(core);
 
     const innerCore = new THREE.LineSegments(
       new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(0.6, 0)),
-      new THREE.LineBasicMaterial({ color: 0x7ef0c5, transparent: true, opacity: 0.42 })
+      new THREE.LineBasicMaterial({ color: 0xa9c4ae, transparent: true, opacity: 0.38 })
     );
     group.add(innerCore);
 
@@ -162,7 +162,7 @@ export default function Scene3D({ className = '', variant = 'hero', intensity = 
           }).concat([new THREE.Vector3(radius, 0, 0)])
         ),
         new THREE.LineBasicMaterial({
-          color: i === 1 ? 0x7ef0c5 : 0xa58bff,
+          color: i === 1 ? 0xa9c4ae : 0xc9973f,
           transparent: true,
           opacity: 0.18 + i * 0.04,
         })

@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" fill="none">
   <defs>
     <linearGradient id="g" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#D9CCFF"/>
-      <stop offset="0.48" stop-color="#8E7BFF"/>
-      <stop offset="1" stop-color="#7EF0C5"/>
+      <stop stop-color="#F3E3BE"/>
+      <stop offset="0.48" stop-color="#D9A441"/>
+      <stop offset="1" stop-color="#8A6520"/>
     </linearGradient>
     <radialGradient id="bg" cx="0.3" cy="0.2" r="1">
-      <stop stop-color="#16141F"/>
-      <stop offset="1" stop-color="#07070A"/>
+      <stop stop-color="#181613"/>
+      <stop offset="1" stop-color="#0B0B0C"/>
     </radialGradient>
   </defs>
   <rect width="40" height="40" rx="10" fill="url(#bg)"/>
   <rect x="1.6" y="1.6" width="36.8" height="36.8" rx="9" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.1"/>
   <path d="M20.6 3.4h8.4a7.6 7.6 0 0 1 7.6 7.6v9.4h-8.4a7.6 7.6 0 0 1-7.6-7.6V3.4Z" fill="url(#g)"/>
-  <rect x="7.4" y="27.2" width="10.2" height="4.2" rx="2.1" fill="#7EF0C5"/>
-  <circle cx="20" cy="20" r="2.3" fill="#F4F2FA"/>
+  <rect x="7.4" y="27.2" width="10.2" height="4.2" rx="2.1" fill="#D9A441"/>
+  <circle cx="20" cy="20" r="2.3" fill="#F3F0E9"/>
 </svg>

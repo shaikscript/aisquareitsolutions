@@ -13,9 +13,9 @@ export function LogoMark({ size = 32, className = '' }) {
     >
       <defs>
         <linearGradient id="aisq-mark" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#D9CCFF" />
-          <stop offset="0.48" stopColor="#8E7BFF" />
-          <stop offset="1" stopColor="#7EF0C5" />
+          <stop stopColor="#F3E3BE" />
+          <stop offset="0.52" stopColor="#D9A441" />
+          <stop offset="1" stopColor="#8A6520" />
         </linearGradient>
       </defs>
       <rect x="1.6" y="1.6" width="36.8" height="36.8" rx="10.4" stroke="currentColor" strokeOpacity="0.28" strokeWidth="1.1" />
@@ -23,7 +23,7 @@ export function LogoMark({ size = 32, className = '' }) {
         d="M20.6 3.4h8.4a7.6 7.6 0 0 1 7.6 7.6v9.4h-8.4a7.6 7.6 0 0 1-7.6-7.6V3.4Z"
         fill="url(#aisq-mark)"
       />
-      <rect x="7.4" y="27.2" width="10.2" height="4.2" rx="2.1" fill="#7EF0C5" />
+      <rect x="7.4" y="27.2" width="10.2" height="4.2" rx="2.1" fill="#D9A441" />
       <circle cx="20" cy="20" r="2.3" fill="currentColor" />
     </svg>
   );

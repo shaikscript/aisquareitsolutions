@@ -33,7 +33,7 @@ export function ThemeProvider({ children }) {
       /* noop */
     }
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', theme === 'light' ? '#f6f4ef' : '#06060a');
+    if (meta) meta.setAttribute('content', theme === 'light' ? '#f7f4ec' : '#0b0b0c');
   }, [theme]);
 
   const value = useMemo(
