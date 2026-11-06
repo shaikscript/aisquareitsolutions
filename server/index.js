@@ -47,7 +47,9 @@ async function start() {
   app.use((req, res, next) => {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+    // only lock framing down in production: the hosted dev preview embeds
+    // this server in an iframe served from a different origin
+    if (isProd) res.setHeader('X-Frame-Options', 'SAMEORIGIN');
     if (req.path.startsWith('/api')) {
       res.setHeader('Cache-Control', 'no-store, private');
     }
