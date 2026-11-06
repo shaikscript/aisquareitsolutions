@@ -8,6 +8,7 @@ import {
   FileStack,
   Inbox,
   Mail,
+  Megaphone,
   ShieldCheck,
   Target,
   TrendingUp,

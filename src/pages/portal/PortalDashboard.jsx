@@ -12,6 +12,7 @@ import {
   FileText,
   Gauge,
   MessageSquare,
+  Megaphone,
   Play,
   Target,
   TrendingUp,

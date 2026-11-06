@@ -45,6 +45,15 @@ npm run seed -- --force     # creates data/aisquare.db with demo data
 npm run dev                 # API + Vite dev server on http://localhost:3000
 ```
 
+Render check — mounts the real app in jsdom and walks all 35 routes, failing on the
+error boundary or a render-time exception:
+
+```bash
+npm run check:render                                   # mock data
+npm run check:render -- --fixtures fixtures.json       # real API payloads
+npm run check:render -- /admin /portal                 # selected routes
+```
+
 Demo accounts: `admin` / `aisquare-admin`, `priya` / `aisquare-employee`,
 `candidate` / `aisquare-candidate`.
 
