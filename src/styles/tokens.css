@@ -1,0 +1,128 @@
+/* ═══════════════════════════════════════════════════════════════
+   AI SQUARE · DESIGN TOKENS
+   "Ink & Brass" — warm graphite, bone type, one brass accent.
+   Dark is the default; Daylight is the paper equivalent.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  color-scheme: dark;
+
+  /* surfaces — neutral graphite, a hair warm, never blue-black */
+  --ink: #08080a;
+  --bg: #0b0b0c;
+  --bg-soft: #0e0e10;
+  --panel: #121214;
+  --panel-2: #161618;
+  --panel-3: #1b1b1e;
+  --raised: #212125;
+  --line: rgba(255, 255, 255, 0.075);
+  --line-strong: rgba(255, 255, 255, 0.13);
+  --line-bright: rgba(255, 255, 255, 0.22);
+
+  /* type — bone, not white */
+  --text: #f3f0e9;
+  --text-soft: #d8d4ca;
+  --muted: #a29e96;
+  --faint: #78756d;
+  --ghost: #55524c;
+
+  /* accents — one brass hue carries the brand, the rest stay muted */
+  --brass: #d9a441;
+  --brass-bright: #f0c574;
+  --violet: #d9a441;
+  --violet-bright: #f0c574;
+  --lavender: #ebd9b4;
+  --mint: #8fb59b;
+  --amber: #d98a4e;
+  --rose: #c9564e;
+  --danger: #c9564e;
+  --ok: #7fa88c;
+  --info: #7e9bb5;
+
+  --accent: var(--brass);
+  --accent-soft: rgba(217, 164, 65, 0.12);
+  --accent-line: rgba(217, 164, 65, 0.32);
+
+  /* gradients are used sparingly: type accents and thin rules only */
+  --grad-iris: linear-gradient(104deg, #f3f0e9 0%, #e6c78d 48%, #d9a441 100%);
+  --grad-violet: linear-gradient(140deg, #e9c687 0%, #d9a441 56%, #a97c2a 100%);
+  --grad-metal: linear-gradient(160deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02) 44%, rgba(255, 255, 255, 0.06));
+  --grad-fade: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+
+  /* elevation — quiet, physical, no coloured halos */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -20px rgba(0, 0, 0, 0.9);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.35), 0 24px 56px -34px rgba(0, 0, 0, 0.95);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.3), 0 48px 110px -52px rgba(0, 0, 0, 1);
+  --glow: 0 0 48px -22px rgba(217, 164, 65, 0.4);
+
+  /* geometry */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+  --r-2xl: 30px;
+  --r-btn: 10px;
+  --pill: 999px;
+  --shell: 1240px;
+  --gutter: clamp(20px, 5vw, 56px);
+
+  /* motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --fast: 140ms;
+  --base: 240ms;
+  --slow: 560ms;
+
+  /* type stacks */
+  --font: 'Geist Variable', 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --serif: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+  --mono: ui-monospace, 'SF Mono', 'Cascadia Mono', 'JetBrains Mono', monospace;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --ink: #f2eee4;
+  --bg: #f7f4ec;
+  --bg-soft: #f1ede3;
+  --panel: #fffdf8;
+  --panel-2: #faf7f0;
+  --panel-3: #f1ede3;
+  --raised: #ffffff;
+  --line: rgba(24, 20, 14, 0.1);
+  --line-strong: rgba(24, 20, 14, 0.17);
+  --line-bright: rgba(24, 20, 14, 0.3);
+
+  --text: #16140f;
+  --text-soft: #33302a;
+  --muted: #615d54;
+  --faint: #847f74;
+  --ghost: #a8a294;
+
+  --brass: #8a6520;
+  --brass-bright: #a97c2a;
+  --violet: #8a6520;
+  --lavender: #6b4e17;
+  --mint: #3e6b4f;
+  --amber: #8f4f22;
+  --rose: #9e3b33;
+  --danger: #9e3b33;
+  --ok: #3e6b4f;
+  --info: #3f5f7a;
+
+  --accent: #8a6520;
+  --accent-soft: rgba(138, 101, 32, 0.1);
+  --accent-line: rgba(138, 101, 32, 0.28);
+  --violet-bright: #a97c2a;
+
+  --grad-iris: linear-gradient(104deg, #16140f 0%, #6b4e17 56%, #8a6520 100%);
+  --grad-violet: linear-gradient(140deg, #a97c2a 0%, #8a6520 60%, #6b4e17 100%);
+  --grad-metal: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3) 40%, rgba(0, 0, 0, 0.03));
+  --grad-fade: linear-gradient(180deg, rgba(24, 20, 14, 0.04), rgba(24, 20, 14, 0));
+
+  --shadow-sm: 0 1px 2px rgba(38, 30, 18, 0.06), 0 8px 20px -18px rgba(38, 30, 18, 0.35);
+  --shadow-md: 0 2px 4px rgba(38, 30, 18, 0.05), 0 20px 44px -30px rgba(38, 30, 18, 0.4);
+  --shadow-lg: 0 4px 8px rgba(38, 30, 18, 0.04), 0 36px 80px -44px rgba(38, 30, 18, 0.45);
+  --glow: 0 18px 48px -30px rgba(138, 101, 32, 0.35);
+}

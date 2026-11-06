@@ -1,0 +1,19 @@
+node_modules/
+dist/
+client_bundle/
+data/
+storage/
+.env
+.DS_Store
+*.log
+
+# PHP deploy artefacts (the ready-to-upload ZIP is tracked on purpose)
+deploy/*
+!deploy/aisquare-infinityfree.zip
+php/api/config.php
+php/app.html
+php/brand/
+php/manifest.webmanifest
+php/storage/resumes/*
+php/storage/guidelines/*
+.cache/

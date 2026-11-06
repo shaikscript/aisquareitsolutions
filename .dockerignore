@@ -1,0 +1,12 @@
+node_modules
+dist
+data
+storage
+.git
+.gitignore
+php
+deploy
+tools
+*.zip
+*.log
+.DS_Store
