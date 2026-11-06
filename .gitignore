@@ -1,0 +1,17 @@
+node_modules/
+dist/
+client_bundle/
+data/
+storage/
+.env
+.DS_Store
+*.log
+
+# PHP deploy artefacts
+deploy/
+php/api/config.php
+php/app.html
+php/brand/
+php/manifest.webmanifest
+php/storage/resumes/*
+php/storage/guidelines/*

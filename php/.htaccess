@@ -1,0 +1,38 @@
+# AI Square · Apache rules for shared hosting (InfinityFree, cPanel, Plesk)
+#
+# Upload this folder as-is. Everything below is relative to the folder the
+# upload lives in, so the same files work at a domain root or inside
+# /subfolder/ without edits.
+
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Every /api/... request is handled by the PHP front controller.
+  RewriteRule ^api/(.*)$ api/index.php [L,QSA]
+
+  # Uploaded resumes and guideline PDFs are private: never serve them directly.
+  RewriteRule ^storage(/|$) - [F,L]
+
+  # Real files win: brand images, the manifest, install.php, app.html.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else is a client-side route: render the single-page app.
+  RewriteRule ^ index.php [L]
+</IfModule>
+
+# The build inlines every script and stylesheet, so compression is a bonus,
+# never a requirement.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/svg+xml "access plus 7 days"
+  ExpiresByType image/png "access plus 7 days"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
